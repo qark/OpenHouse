@@ -16,7 +16,7 @@ run-mobileweb :
 	@cd mobileweb ; python -m SimpleHTTPServer
 
 sync:
-	rsync -av dashboard/ lsmid@people.redhat.com:public_html/openhouse/dashboard
-	rsync -av mobileweb/ root@ospace.cz:/var/www/m.devconf.cz/oh2012/
+	rsync -av --delete dashboard/ lsmid@people.redhat.com:public_html/openhouse/dashboard
+	rsync -av --delete mobileweb/ root@ospace.cz:/var/www/m.devconf.cz/oh2012/
 
 
