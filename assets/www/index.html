@@ -2,15 +2,36 @@
 <html> 
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <title>OpenHouse 2012</title>
+  <link rel="stylesheet" href="themes/rh-theme.min.css" />
+  <link rel="stylesheet" href="jquery.mobile.structure-1.0.1.min.css" />
   <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>
+  <script src="jquery-1.6.4.min.js"></script>
+  <script src="jquery.mobile-1.0.1.min.js"></script>
+  <script src="jsrender.js"></script>
+  <script src="application.js"></script>
 </head> 
 
 <body> 
 
-Hello!
+<div data-role="page">
+
+  <div data-role="header" data-theme="b">
+    <h1>OpenHouse 2012</h1>
+  </div><!-- /header -->
+
+  <div data-role="content">
+      <img src="ohlogo.png" width="100%" />
+      <br />
+      <a href="#" data-role="button" data-theme="b" onclick="displaySchedule('2012-04-04');">Schedule</a>
+      <a href="twitter.html" data-role="button" data-theme="b">#rhopen</a>
+      <a href="about.html" data-role="button" data-theme="b">About</a>
+    <center>Issues or comments? <a href="mailto:lsmid@redhat.com">E-mail us!</a></center>
+  </div><!-- /content -->
+
+</div><!-- /page -->
 
 </body>
 </html>
