@@ -27,7 +27,8 @@ body {
 }
 
 div .name {
-    border-radius: 5px 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     background-color: #cc0000;
     color: #fff;
     text-align: center;
@@ -37,9 +38,9 @@ div .name {
 }
 
 #header {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    vertical-align: bottom;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    vertical-align: middle;
     text-align: center;
     color: #fff;
     font-size: 30px;
@@ -47,11 +48,26 @@ div .name {
 }
 
 #clock {
-    padding-top: 30px;
+    clear: both;
+    padding-top: 5%;
     font-size: 30px;
     color: #fff;
+    background-color: #000;
     font-weight: bold;
     text-align: center;
+}
+
+.qrcode {
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: #fff;
+    text-align: center;
+}
+
+.qrcode img {
+   width: 90%;
 }
 
 ul {
