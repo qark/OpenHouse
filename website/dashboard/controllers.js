@@ -55,6 +55,9 @@ function ScheduleCtrl($xhr, $defer) {
         lastGroup.push(value);
       }
     });
+    if (lastGroup.length > 0 && groupCount < 2) {
+      self.eventBlocks.push({"start": lastTime, "events": lastGroup});
+    }
 
     $defer(self.update, 1000);
   }
