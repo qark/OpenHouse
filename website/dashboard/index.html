@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:ng="http://angularjs.org/">
-<html>
 
 <head>
   <meta charset="utf-8">
@@ -14,7 +13,7 @@
 <body ng:controller="ScheduleCtrl">
 
 <div id="schedule" class="videoblock">
-    <div id="header">Open House 2012<br /><img src="rhlogo.png"/></div>
+    <div id="header">Open House 2013<br /><img src="rhlogo.png"/></div>
     <video id="video" class="video-js vjs-default-skin" controls
       preload="auto" width="100%" height="350" autoplay loop data-setup="{}">
       <source src="files/truth.ogg" type="video/ogg" />
@@ -22,6 +21,7 @@
       <source src="files/inevitable.ogg" type="video/ogg" />
       <source src="files/birdsong.ogg" type="video/ogg" />
     </video>
+    <!-- TBD
     <div class="qrcode">
       <img src="qrcode-android-store.png"/>
       OpenHouse 2012 in <strong>Android Store</strong>
@@ -30,6 +30,7 @@
       <img src="qrcode-mobileweb.png" />
       Mobile website <strong>http://bit.ly/openh2012</strong>
     </div>
+    -->
     <div id="clock">{{currentTime}}</div>
 </div>
 

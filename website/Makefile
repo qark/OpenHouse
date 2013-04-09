@@ -3,8 +3,8 @@
 all: mobileweb/schedule.json mobileweb/schedule-ts.json mobileweb/schedule.xml
 
 mobileweb/schedule.json: tools/schedule2json.py
-	tools/schedule2json.py mobileweb/
-	tools/schedule2json.py dashboard/
+	tools/ical2json.py mobileweb/
+	tools/ical2json.py dashboard/
 
 #mobileweb/schedule.xml:
 #	tools/devconf_schedule.py mobileweb/schedule.json > mobileweb/schedule.xml
@@ -17,6 +17,5 @@ run-mobileweb :
 
 sync:
 	rsync -av --delete dashboard/ lsmid@people.redhat.com:public_html/openhouse/dashboard
-	rsync -av --delete mobileweb/ root@ospace.cz:/var/www/m.devconf.cz/oh2012/
-
+	rsync -av --delete mobileweb/ lsmid@people.redhat.com:public_html/openhouse/mobileweb
 
