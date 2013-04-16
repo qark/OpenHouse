@@ -1,82 +1,85 @@
 function ScheduleCtrl($xhr, $defer) {
-  var self = this;
-
-  var hourOffset = 0;
-  var debug = 0;
-  if (debug) {
-   var hourOffset = 9 - (new Date().getMinutes());
-  }
-
-  var monthNames = [ "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ];
-
-  self.response = null;
-  self.currentTime = "--:--";
-  self.eventBlocks = [];
-
-  self.tweetBlocks = [];
-
-  $xhr("GET", "schedule.json", function(code, response) {
-    self.response = response;
-    self.update();
-  });
-
-  // periodically update page
-  self.update = function() {
-    var now = new Date();
-    // debug only
+    var self = this,
+        hourOffset = 0,
+        debug = 0,
+        monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+  
     if (debug) {
-      var hours = now.getMinutes() + hourOffset;
-      var minutes = now.getSeconds();
-      now.setDate(23);
-      now.setMonth(1);
-      now.setYear(2013);
-      now.setHours(hours);
-      now.setMinutes(minutes);
+        var hourOffset = 9 - (new Date().getMinutes());
     }
 
-    var hours = now.getHours(),
-      minutes = now.getMinutes();
-    
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    
-    self.currentTime = monthNames[now.getMonth()] + " " + now.getDate() + ", " + hours + ":" + minutes;
-
-    var nowMinus10 = now.getTime() / 1000 - 600; // now - 10 minutes in seconds
-
-    // reset events
+    self.response = null;
+    self.currentTime = "--:--";
     self.eventBlocks = [];
-    
-    // group events by time
-    var lastTime = "";
-    var lastGroup = [];
-    var groupCount = 0;
-    
-    angular.forEach(self.response.items, function(value, key) {
-      if (value.timestamp < nowMinus10) {
-        // past event, ignore it
-      } else if (value.start != lastTime) {
-        if (lastGroup.length > 0 && groupCount < 2) {
-          self.eventBlocks.push({"start": lastTime, "events": lastGroup});
-          groupCount += 1;
-        };
-        lastTime = value.start;
-        lastGroup = [value];
-      } else {
-        lastGroup.push(value);
-      }
+    self.tweetBlocks = [];
+
+    $xhr("GET", "schedule.json", function(code, response) {
+        self.response = response;
+        self.update();
     });
-    if (lastGroup.length > 0 && groupCount < 2) {
-      self.eventBlocks.push({"start": lastTime, "events": lastGroup});
+
+    // periodically update page
+    self.update = function() {
+        var now = new Date(),
+            hours = now.getHours(),
+            minutes = now.getMinutes();
+        
+        // debug only
+        if (debug) {
+            var hours = now.getMinutes() + hourOffset,
+                minutes = now.getSeconds();
+            
+            now.setDate(23);
+            now.setMonth(1);
+            now.setYear(2013);
+            now.setHours(hours);
+            now.setMinutes(minutes);
+        }
+    
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+    
+        // self.currentTime = monthNames[now.getMonth()] + " " + now.getDate() + ", " + hours + ":" + minutes;
+        self.currentTime = hours + ":" + minutes;
+
+        var nowMinus10 = now.getTime() / 1000 - 600; // now - 10 minutes in seconds
+
+        // reset events
+        self.eventBlocks = [];
+    
+        // group events by time
+        var lastTime = "";
+            lastGroup = [];
+            groupCount = 0;
+        
+        angular.forEach(self.response.items, function(value, key) {
+            if (value.timestamp < nowMinus10) {
+                // past event, ignore it
+            } else if (value.start != lastTime) {
+                if (lastGroup.length > 0 && groupCount < 3) {
+                    self.eventBlocks.push({"start": lastTime, "events": lastGroup});
+                    groupCount += 1;
+                }
+                
+                lastTime = value.start;
+                lastGroup = [value];
+            } else {
+                lastGroup.push(value);
+            }
+        });
+        
+        if (lastGroup.length > 0 && groupCount < 3) {
+            self.eventBlocks.push({"start": lastTime, "events": lastGroup});
+        }
+
+        $defer(self.update, 1000);
     }
 
     $defer(self.update, 1000);
-  }
-
-  $defer(self.update, 1000);
-
 }
 
 //ScheduleCtrl.$inject = ['$xhr'];
