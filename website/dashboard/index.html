@@ -2,7 +2,7 @@
 <html xmlns:ng="http://angularjs.org/" lang="en">
     <head>
         <meta charset="utf-8">
-        <title>DevConf 2013</title>
+        <title>Open House 2013</title>
         <link type="text/css" href="style.css" rel="stylesheet">
         <script src="lib/angular-0.9.19.min.js" ng:autobind></script>
         <script src="lib/jquery-1.7.2.js" ng:autobind></script>
@@ -10,35 +10,13 @@
     </head>
 
     <body ng:controller="ScheduleCtrl">
-        <div id="schedule" class="infoblock">
-            <div id="banner"></div>
-
+        <div class="infoblock">
             <h1 id="header">
                 Open House 2013
+                <span id="clock">{{ currentTime }}</span>
             </h1>
-            
-            <div id="clock">
-                {{ currentTime }}
-            </div>
-            
-            <!--
-            <div id="qrcodes">
-                <div>
-                    <img src="qrcode-android-store.png" />
-                    DevConf App for <strong>Android</strong>
-                </div>
-                
-                <div class="qrcode">
-                    <img src="meego.png"/>
-                    MeeGo App for <strong>Nokia N9</strong>
-                </div>
 
-                <div class="qrcode">
-                    <img src="qrcode-mobileweb.png" />
-                    Mobile website <strong>http://bit.ly/dev2013</strong>
-                </div>
-            </div>
-            -->
+            <div id="banner"></div>
         </div>
 
         <div id="schedule" class="block" ng:repeat="block in eventBlocks">
