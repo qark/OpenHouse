@@ -10,32 +10,33 @@
     </head>
 
     <body ng:controller="ScheduleCtrl">
-        <div class="infoblock">
-            <h1 id="header">
-                Open House 2013
-                <span id="clock">{{ currentTime }}</span>
-            </h1>
+        <div id="container">
+            <div class="infoblock">
+                <h1 id="header">
+                    Open House 2013
+                    <span id="clock">{{ currentTime }}</span>
+                </h1>
 
-            <div id="banner"></div>
-        </div>
+                <div id="banner"></div>
+            </div>
 
-        <div id="schedule" class="block" ng:repeat="block in eventBlocks">
-            <div class="name">{{ block.start }}</div>
-            <ul>
-                <li ng:repeat="event in block.events">
-                    <div class="session current">
-                        <div class="topic">
-                            <span ng:repeat="tag in event.tags">
-                                <span class="tag">{{ tag }}</span>
-                            </span>
-                            {{ event.topic }}
-                            <span class="speaker"> by {{ event.speaker }}</span>
+            <div id="schedule" class="block" ng:repeat="block in eventBlocks">
+                <div class="name">{{ block.start }}</div>
+                <ul>
+                    <li ng:repeat="event in block.events">
+                        <div class="session current">
+                            <div class="topic">
+                                {{ event.topic }}
+                                <span ng:repeat="tag in event.tags" class="tags">
+                                    <span class="tag">{{ tag }}</span>
+                                </span>
+                            </div>
+
+                            by <strong class="speaker">{{ event.speaker }}</strong> in {{ event.room }}
                         </div>
-                        
-                        {{ event.room }}
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <div id="tweets"></div>

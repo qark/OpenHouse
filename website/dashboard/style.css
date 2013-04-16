@@ -20,127 +20,139 @@ ul {
         background-color: #dedcc1;
     }
 
-/* Blocks */
+/* Container */
 
-    .block {
-        float: left;
-        width: 29.4%;
-        height: 650px;
-        margin: 0.1%;
-        border-radius: 8px;
-        background-color: #dedcc1;
-        overflow: hidden;
+#container {
+    padding-left: 218px;
+    padding-bottom: 3px;
+    overflow: hidden;
+}
 
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box; 
-        box-sizing: border-box;
-    }
+    /* Blocks */
 
-        div .name {
-            color: #fff;
-            font-size: 1.6em;
-            font-weight: bold;
-            text-align: center;
-            padding: 3px;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            background-color: #cc0000;
-        }
-
-        /* Session */
-
-        .session {
-            padding: 10px 12px;
+        .block {
+            float: left;
+            width: 33.1%;
+            height: 650px;
+            margin: 0.1%;
+            border-radius: 8px;
+            background-color: #dedcc1;
+            overflow: hidden;
 
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box; 
             box-sizing: border-box;
         }
 
-        .session .topic {
-            font-weight: bold;
-            line-height: 1.45em;
-            margin-bottom: 7px;
-        }
-
-        .session .speaker {
-            font-style: italic;
-        }
-
-        .session .descr {
-            width: 100%;
-            color: #666;
-            font-size: small;
-            text-align: left;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .session .tag {
-            color: #fff;
-            padding: 2px 4px;
-            border-radius: 5px;
-            background-color: #000;
-        }
-
-        .current {
-            background-color: #fff;
-        }
-
-            .current .topic {
+            div .name {
+                color: #fff;
+                font-size: 1.6em;
+                font-weight: bold;
+                text-align: center;
+                padding: 3px;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                background-color: #cc0000;
             }
 
-    /* Info block */
+            /* Session */
 
-    .infoblock {
-        position: relative;
-        float: left;
-        width: 11%;
-        height: 650px;
-        color: #fff;
-        margin: 0.1%;
-        padding-right: 160px;
-        border-radius: 8px;
-        background-color: #000;
+            .session {
+                padding: 10px 12px;
 
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box; 
-        box-sizing: border-box;
-    }
-
-        #header {
-            position: relative;
-            height: 35px;
-            width: 635px;
-            font-size: 1.9em;
-            font-weight: bold;
-            text-align: right;
-            padding-right: 15px;
-
-            -webkit-transform: rotate(-90deg) translateY(-298px) translateX(-290px);
-            -webkit-transform-origin: center center;
-            -moz-transform: rotate(-90deg) translateY(-298px) translateX(-290px);
-            -moz-transform-origin: center center;
-        }
-
-            #clock {
-                position: absolute;
-                left: 15px;
-                top: 7px;
-                font-size: 0.7em;
-                font-weight: normal;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box; 
+                box-sizing: border-box;
             }
 
-        #banner {
+            .session .topic {
+                font-weight: bold;
+                line-height: 1.45em;
+                margin-bottom: 7px;
+            }
+
+            .session .speaker {
+                font-style: italic;
+            }
+
+            .session .descr {
+                width: 100%;
+                color: #666;
+                font-size: small;
+                text-align: left;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            .session .tags {
+                margin-left: 5px;
+            }
+
+                .session .tag {
+                    color: #fff;
+                    padding: 2px 8px;
+                    border-radius: 5px;
+                    background-color: #444;
+                }
+
+            .current {
+                background-color: #fff;
+            }
+
+                .current .topic {
+                }
+
+        /* Info block */
+
+        .infoblock {
             position: absolute;
+            left: 0px;
             top: 0px;
-            right: 0px;
-            height: 100%;
-            width: 160px;
-            background: #ae0001 url('banner2.jpg') left top no-repeat;
-            margin-left: 1.5em;
+            width: 215px;
+            height: 650px;
+            margin: 0.1%;
+            padding-right: 160px;
+            border-radius: 8px;
+            background-color: #000;
+
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box; 
+            box-sizing: border-box;
         }
+
+            #header {
+                position: relative;
+                height: 35px;
+                width: 635px;
+                color: #fff;
+                font-size: 2.2em;
+                font-weight: bold;
+                text-align: right;
+                padding-right: 15px;
+
+                -webkit-transform: rotate(-90deg) translateY(-300px) translateX(-290px);
+                -webkit-transform-origin: center center;
+                -moz-transform: rotate(-90deg) translateY(-300px) translateX(-290px);
+                -moz-transform-origin: center center;
+            }
+
+                #clock {
+                    position: absolute;
+                    left: 15px;
+                    top: 7px;
+                    font-size: 0.7em;
+                }
+
+            #banner {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                height: 100%;
+                width: 160px;
+                background: #ae0001 url('banner2.jpg') left top no-repeat;
+                margin-left: 1.5em;
+            }
 
 /* Tweets */
 

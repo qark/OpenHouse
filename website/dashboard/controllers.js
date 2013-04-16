@@ -1,11 +1,7 @@
 function ScheduleCtrl($xhr, $defer) {
     var self = this,
         hourOffset = 0,
-        debug = 0,
-        monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
+        debug = false;
   
     if (debug) {
         var hourOffset = 9 - (new Date().getMinutes());
@@ -43,7 +39,6 @@ function ScheduleCtrl($xhr, $defer) {
             minutes = "0" + minutes;
         }
     
-        // self.currentTime = monthNames[now.getMonth()] + " " + now.getDate() + ", " + hours + ":" + minutes;
         self.currentTime = hours + ":" + minutes;
 
         var nowMinus10 = now.getTime() / 1000 - 600; // now - 10 minutes in seconds
@@ -52,8 +47,8 @@ function ScheduleCtrl($xhr, $defer) {
         self.eventBlocks = [];
     
         // group events by time
-        var lastTime = "";
-            lastGroup = [];
+        var lastTime = "",
+            lastGroup = [],
             groupCount = 0;
         
         angular.forEach(self.response.items, function(value, key) {
@@ -62,7 +57,7 @@ function ScheduleCtrl($xhr, $defer) {
             } else if (value.start != lastTime) {
                 if (lastGroup.length > 0 && groupCount < 3) {
                     self.eventBlocks.push({"start": lastTime, "events": lastGroup});
-                    groupCount += 1;
+                    groupCount++;
                 }
                 
                 lastTime = value.start;
@@ -81,11 +76,6 @@ function ScheduleCtrl($xhr, $defer) {
 
     $defer(self.update, 1000);
 }
-
-//ScheduleCtrl.$inject = ['$xhr'];
-
-
-
 
 
 // Tweets animation
