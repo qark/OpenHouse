@@ -24,7 +24,7 @@ ul {
 
     .block {
         float: left;
-        width: 33.2%;
+        width: 29.4%;
         height: 650px;
         margin: 0.1%;
         border-radius: 8px;
@@ -96,11 +96,11 @@ ul {
     .infoblock {
         position: relative;
         float: left;
-        width: 33%;
+        width: 11%;
         height: 650px;
         color: #fff;
         margin: 0.1%;
-        padding-left: 160px;
+        padding-right: 160px;
         border-radius: 8px;
         background-color: #000;
 
@@ -110,55 +110,37 @@ ul {
     }
 
         #header {
+            position: relative;
+            height: 35px;
+            width: 635px;
             font-size: 1.9em;
             font-weight: bold;
-            text-align: center;
-            padding: 0px 15px 0px 15px;
-            /* background: url('rhlogo.png') center top no-repeat; */
+            text-align: right;
+            padding-right: 15px;
+
+            -webkit-transform: rotate(-90deg) translateY(-298px) translateX(-290px);
+            -webkit-transform-origin: center center;
+            -moz-transform: rotate(-90deg) translateY(-298px) translateX(-290px);
+            -moz-transform-origin: center center;
         }
 
-        #clock {
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            margin: 0 15px 1.5em 15px;
-            padding: 0.5em 0;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-        }
+            #clock {
+                position: absolute;
+                left: 15px;
+                top: 7px;
+                font-size: 0.7em;
+                font-weight: normal;
+            }
 
         #banner {
             position: absolute;
             top: 0px;
-            left: 0px;
-            float: left;
+            right: 0px;
             height: 100%;
             width: 160px;
             background: #ae0001 url('banner2.jpg') left top no-repeat;
-            margin-right: 1.5em;
+            margin-left: 1.5em;
         }
-
-        #qrcodes {
-            width: 90%;
-            margin: 0 auto;
-        }
-
-            #qrcodes div {
-                display: inline-block;
-                width: 48.5%;
-                text-align: center;
-                margin-bottom: 1em;
-
-                -moz-box-sizing: border-box;
-                -webkit-box-sizing: border-box; 
-                box-sizing: border-box;
-            }
-
-                #qrcodes div img {
-                   display: block;
-                   width: 90%;
-                   margin: 0 auto 0.8em auto;
-                }
 
 /* Tweets */
 
